@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#001F45">
+<title>02 Enterprise AI Ecosystem | AAZK Solutions | AI Adoption, Security & Private AI Consulting</title>
+<meta name="description" content="AAZK Solutions helps businesses adopt AI that delivers real results, engineered properly, protected end to end and deployed to suit your infrastructure and data requirements.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#001F45;--blue:#0076D1;--blue-hover:#1C73CF;--teal:#14D6E0;--yellow:#FFD200;--green:#009166;--red:#D53943;
+  --navy-900:#001229;--navy-700:#002A5C;--navy-600:#003875;--navy-500:#0A3160;
+  --ink:#101828;--slate:#2E3644;--muted:#667085;--line:#E5E7EB;--soft:#F6F8FB;--sky:#F0F9FF;
+  --blue-200:#AFD0EF;--blue-100:#BCE4FB;--blue-150:#CDDCF2;
+  --shadow-blue:0 4px 16px rgba(0,118,209,.25);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}a:hover{color:var(--blue-hover)}
+img,svg{display:block}
+button,input,select,textarea{font:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--navy);color:#fff;padding:10px 16px;border-radius:6px;font-weight:600;z-index:300}
+.skip:focus{left:16px}
+:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:16px 24px;border-radius:6px;font-weight:700;font-size:16px;text-decoration:none;border:0;cursor:pointer;transition:transform .2s,background .2s}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:var(--shadow-blue)}
+.btn-primary:hover{background:var(--blue-hover);color:#fff;transform:translateY(-2px)}
+.btn-ghost{color:#fff;border:1px solid var(--blue-200);background:transparent}
+.btn-ghost:hover{background:rgba(255,255,255,.08);color:#fff}
+.btn-outline{color:var(--navy);border:1.5px solid var(--navy);background:transparent}
+.btn-outline:hover{background:var(--navy);color:#fff}
+.btn-yellow{background:var(--yellow);color:var(--navy);font-weight:800}
+.btn-yellow:hover{color:var(--navy);transform:translateY(-2px)}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:24px;min-height:72px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--navy)}
+.mark{width:38px;height:38px;background:var(--navy);border-radius:9px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:15px;letter-spacing:-.06em}
+.logo-text{display:flex;flex-direction:column;line-height:1.1}
+.logo-name{font-size:19px;font-weight:800;letter-spacing:-.04em}
+.logo-name span{font-weight:500}
+.logo-sub{font-size:9px;font-weight:300;letter-spacing:.16em;color:var(--muted);margin-top:3px}
+.navlinks{display:flex;gap:26px;margin-left:auto;font-size:14px;font-weight:600}
+.navlinks a{color:var(--navy);text-decoration:none}
+.navlinks a:hover{color:var(--blue)}
+.navcta{min-height:44px;padding:12px 20px;font-size:14px}
+.menu{display:none;margin-left:auto;background:none;border:0;width:44px;height:44px;color:var(--navy);cursor:pointer}
+
+/* Shared section type */
+.section{padding:104px 0}
+.soft{background:var(--soft)}
+.eyebrow{margin:0 0 14px;font-size:14px;font-weight:300;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+.eyebrow.teal{color:var(--teal)}
+h2{margin:0 0 16px;font-weight:700;font-size:clamp(30px,3.6vw,46px);line-height:1.12;letter-spacing:-.025em;color:var(--navy)}
+.lead{margin:0 0 48px;font-size:18px;color:var(--slate);max-width:680px}
+.grid{display:grid;gap:16px}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,var(--navy-900),var(--navy) 45%,var(--navy-600));color:#fff}
+.hero-in{display:flex;flex-wrap:wrap;gap:56px;align-items:center;padding:88px 24px 96px}
+.hero-copy{flex:1 1 520px;min-width:0}
+.badge{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(20,214,224,.4);background:rgba(20,214,224,.08);color:var(--teal);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:300;letter-spacing:.12em;text-transform:uppercase}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--teal);flex:none}
+.hero h1{margin:26px 0 24px;font-weight:800;font-size:clamp(38px,5vw,64px);line-height:1.04;letter-spacing:-.015em;text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--yellow)}
+.hero-sub{margin:0 0 34px;font-size:19px;color:var(--blue-150);max-width:560px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero-note{margin:28px 0 0;font-size:13px;font-weight:300;letter-spacing:.06em;color:var(--blue-200)}
+
+/* Journey card */
+.journey{flex:1 1 420px;min-width:0;border:1px solid rgba(175,208,239,.3);border-radius:18px;background:linear-gradient(140deg,var(--navy-700),var(--navy-900) 70%,var(--navy-600));padding:24px;box-shadow:0 28px 60px rgba(0,18,41,.5)}
+.j-top{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--blue-200);border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:14px}
+.j-top .dot{box-shadow:0 0 0 4px rgba(20,214,224,.15)}
+.j-seq{color:var(--teal)}
+.lane{display:flex;gap:10px;margin-top:30px}
+.node{flex:1 1 0;min-width:0;display:flex;flex-direction:column;padding:16px 13px;border-radius:11px;min-height:168px;background:rgba(0,56,117,.5);border:1px solid var(--navy-600);transition:all .45s ease}
+.node.active{background:var(--navy-500);border-color:var(--teal);box-shadow:0 0 30px rgba(20,214,224,.18);transform:translateY(-5px)}
+.node-icon{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.08);display:grid;place-items:center;margin-bottom:14px}
+.node small{font-size:10px;font-weight:700;letter-spacing:.13em;color:var(--blue-200)}
+.node strong{font-size:14px;margin:6px 0 4px}
+.node span.sub{font-size:12px;color:var(--blue-100);line-height:1.4}
+.down{width:2px;height:30px;margin:0 auto;background:var(--navy-600);transition:background .45s}
+.journey.done .down{background:var(--yellow)}
+.outcome{display:flex;align-items:center;gap:14px;margin:0 auto;max-width:380px;padding:14px 16px;border-radius:11px;background:rgba(0,56,117,.5);border:1px solid var(--navy-600);opacity:.75;transition:all .5s ease}
+.journey.done .outcome{background:var(--navy-500);border-color:var(--yellow);box-shadow:0 0 30px rgba(255,210,0,.18);opacity:1}
+.outcome-icon{width:40px;height:40px;flex:none;border-radius:9px;background:rgba(255,255,255,.08);display:grid;place-items:center}
+.outcome small{display:block;font-size:10px;letter-spacing:.13em;color:var(--blue-200);font-weight:700}
+.outcome strong{display:block;font-size:15px;margin-top:3px}
+.outcome span{display:block;font-size:12px;color:var(--blue-100);margin-top:2px}
+.j-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid rgba(255,255,255,.1);margin-top:26px;padding-top:14px;font-size:13px;color:var(--blue-150)}
+.j-status{display:flex;align-items:center;gap:8px}
+.bars{display:flex;gap:5px}
+.bars span{height:4px;width:22px;border-radius:4px;background:var(--navy-600);transition:background .4s}
+.bars span.on{background:var(--teal)}
+
+/* Trust strip */
+.trust{border-bottom:1px solid var(--line)}
+.trust-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;padding:22px 24px}
+.trust-label{font-size:12px;font-weight:300;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.trust-items{display:flex;flex-wrap:wrap;gap:12px 30px;font-size:14px;font-weight:600;color:var(--navy)}
+.check{display:flex;align-items:center;gap:8px}
+
+/* Services */
+.services{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:30px;position:relative;transition:transform .3s,box-shadow .3s,border-color .3s}
+.card:hover{transform:translateY(-4px);border-color:var(--blue-200);box-shadow:0 15px 40px rgba(0,31,69,.06)}
+.card .num{position:absolute;top:30px;right:30px;font-size:12px;font-weight:700;color:#A8ACB5}
+.icon-box{width:44px;height:44px;border-radius:10px;background:var(--sky);display:grid;place-items:center;margin-bottom:22px}
+.card h3{margin:0 0 10px;font-size:20px;font-weight:700;color:var(--navy)}
+.card p{margin:0;color:var(--slate);font-size:15px}
+
+/* Why / boundary */
+.split{display:flex;flex-wrap:wrap;gap:56px;align-items:center}
+.split > *{flex:1 1 440px;min-width:0}
+.checks{display:flex;flex-direction:column;gap:12px;font-size:16px;font-weight:600;color:var(--navy)}
+.checks span{display:flex;gap:10px;align-items:flex-start}
+.checks svg{flex:none;margin-top:3px}
+.boundary{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.inside{flex:1 1 260px;border:2px dashed var(--blue);border-radius:16px;padding:22px;background:var(--sky)}
+.inside-label{font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--blue)}
+.chips{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.chip{background:#fff;border:1px solid var(--blue-150);border-radius:10px;padding:12px 14px;font-size:14px;font-weight:600;color:var(--navy)}
+.chip.dark{background:var(--navy);color:#fff;font-weight:700;display:flex;justify-content:space-between;align-items:center;border:0}
+.chip.dark span{font-size:11px;font-weight:600;color:var(--teal)}
+.outside{flex:0 1 140px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.block{width:44px;height:44px;border-radius:50%;border:2px solid var(--red);display:grid;place-items:center}
+.public{border:1px solid #D8D8D8;border-radius:10px;padding:12px;font-size:13px;font-weight:600;color:var(--slate);background:#fff}
+.outside small{font-size:12px;color:var(--muted)}
+.risks{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:56px}
+.risk{border:1px solid var(--line);border-radius:12px;padding:28px}
+.risk span{font-size:13px;font-weight:700;color:var(--blue)}
+.risk h3{margin:12px 0 8px;font-size:20px;font-weight:700;color:var(--navy)}
+.risk p{margin:0;color:var(--slate)}
+
+/* Security */
+.security{background:linear-gradient(135deg,var(--navy-900),var(--navy));color:#fff}
+.security h2{color:#fff;max-width:800px}
+.security .lead{color:var(--blue-150);max-width:720px;margin-bottom:52px}
+.pillars{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.pillar{background:var(--navy-700);border:1px solid var(--navy-600);border-radius:14px;padding:32px}
+.pillar h3{margin:18px 0 6px;font-size:26px;font-weight:700}
+.pillar .tag{margin:0 0 18px;color:var(--blue-200);font-size:15px;font-weight:300}
+.pillar ul{margin:0;padding-left:18px;color:var(--sky);font-size:16px;display:flex;flex-direction:column;gap:8px}
+.fine{margin:30px 0 0;font-size:13px;font-weight:300;color:var(--blue-200)}
+
+/* Private AI */
+.stacked{text-transform:uppercase;line-height:1.08}
+.stacked em{font-style:normal;color:var(--blue)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.tile{background:var(--sky);border:1px solid var(--blue-150);border-radius:12px;padding:22px}
+.tile h3{margin:12px 0 4px;font-size:17px;font-weight:700;color:var(--navy)}
+.tile p{margin:0;color:var(--slate);font-size:14px}
+.industries-label{margin:72px 0 20px;font-size:13px;font-weight:300;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.industries{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.industry{border-top:3px solid var(--navy);background:var(--soft);border-radius:0 0 12px 12px;padding:22px}
+.industry h3{margin:0 0 6px;font-size:18px;font-weight:700;color:var(--navy)}
+.industry p{margin:0;font-size:14px;color:var(--slate)}
+
+/* Approach */
+.soft-bordered{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:28px 20px}
+.step{border-top:2px solid var(--blue-150);padding-top:22px;position:relative}
+.step:before{content:"";position:absolute;top:-6px;left:0;width:10px;height:10px;border-radius:50%;background:var(--blue)}
+.step small{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--muted)}
+.step h3{margin:10px 0 8px;font-size:19px;font-weight:700;color:var(--navy)}
+.step p{margin:0;font-size:15px;color:var(--slate)}
+
+/* Engagements */
+.plans{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:stretch}
+.plan{background:#fff;border:1px solid var(--line);border-radius:14px;padding:32px;display:flex;flex-direction:column}
+.plan.featured{background:var(--navy);color:#fff;border:0;box-shadow:var(--shadow-blue)}
+.plan-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;min-height:23px}
+.plan-top span{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--blue)}
+.plan.featured .plan-top span{color:var(--teal)}
+.plan-top .pill{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--yellow);color:var(--navy);border-radius:999px;padding:4px 11px}
+.plan h3{margin:0 0 6px;font-size:22px;font-weight:700;color:var(--navy)}
+.plan.featured h3{color:#fff}
+.price{margin:0 0 20px;font-size:32px;font-weight:800;color:var(--navy)}
+.plan.featured .price{color:#fff}
+.price small{font-size:17px;font-weight:400;color:var(--muted)}
+.plan ul{margin:0 0 28px;padding-left:18px;color:var(--slate);display:flex;flex-direction:column;gap:8px;flex:1}
+.plan.featured ul{color:var(--blue-150)}
+.plan .btn{min-height:48px;padding:14px 22px}
+
+/* CTA band */
+.band{background:linear-gradient(135deg,var(--navy),var(--navy-600));color:#fff}
+.band-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px;padding:72px 24px}
+.band h2{margin:0;color:#fff;font-weight:800;font-size:clamp(26px,3vw,38px);line-height:1.15;letter-spacing:-.01em;text-transform:uppercase;max-width:720px}
+.band h2 em{font-style:normal;color:var(--yellow)}
+
+/* Contact */
+.contact{background:var(--sky)}
+.contact-in{display:flex;flex-wrap:wrap;gap:64px;align-items:flex-start}
+.contact-in > div{flex:1 1 420px;min-width:0}
+.contact-email{font-size:17px;font-weight:700}
+.panel{background:#fff;border:1px solid var(--blue-150);border-radius:16px;padding:34px;box-shadow:0 15px 40px rgba(0,31,69,.06)}
+.panel h3{margin:0 0 18px;font-size:22px;font-weight:700;color:var(--navy)}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.field label{font-size:13px;font-weight:700;color:var(--navy)}
+.field label span{font-weight:400;color:var(--muted)}
+.field input,.field select,.field textarea{font-size:16px;padding:12px 14px;border:1px solid #D8D8D8;border-radius:6px;min-height:48px;background:#fff;color:var(--ink);width:100%}
+.field textarea{resize:vertical;min-height:110px}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 3px rgba(0,118,209,.2)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.submit{width:100%}
+.submit[disabled]{opacity:.7;cursor:wait;transform:none}
+.form-note{margin:12px 0 0;font-size:13px;color:var(--muted)}
+.form-error{display:none;margin:14px 0 0;padding:12px 14px;border-radius:8px;background:#FDECEE;color:#9E1F28;font-size:14px;font-weight:500}
+.form-error.show{display:block}
+.thanks{display:none;flex-direction:column;align-items:flex-start;gap:14px;padding:24px 0}
+.thanks.show{display:flex}
+.thanks .ok{width:52px;height:52px;border-radius:50%;background:var(--green);display:grid;place-items:center}
+.thanks h3{margin:0;font-size:24px}
+.thanks p{margin:0;color:var(--slate);font-size:16px}
+.thanks .btn{min-height:44px;padding:10px 18px;font-size:15px;color:var(--blue);border:1.5px solid var(--blue);background:transparent}
+
+/* Footer */
+.footer{background:var(--navy-900);color:var(--blue-200)}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:40px;padding:56px 0 36px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-brand{flex:1 1 280px;max-width:360px}
+.foot-brand .logo{color:#fff}
+.foot-brand .mark{background:var(--navy-600)}
+.foot-brand p{margin:16px 0 0;font-size:14px;font-weight:300;line-height:1.7}
+.foot-cols{display:flex;flex-wrap:wrap;gap:48px;font-size:14px}
+.foot-cols div{display:flex;flex-direction:column;gap:10px}
+.foot-cols strong{font-size:12px;letter-spacing:.12em;color:#fff}
+.foot-cols a{color:var(--blue-150);text-decoration:none}
+.foot-cols a:hover{color:#fff}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding:22px 0 28px;font-size:13px}
+.foot-bottom a{color:var(--blue-200)}
+.foot-bottom nav{display:flex;gap:20px}
+
+/* Scroll reveal */
+.reveal{opacity:1;transform:none;transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:none}
+
+/* Responsive */
+@media (max-width:900px){
+  .menu{display:grid;place-items:center}
+  .navlinks{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:18px;background:#fff;padding:24px;box-shadow:0 18px 35px rgba(16,32,48,.12);margin:0}
+  .navlinks.open{display:flex}
+  .navcta{display:none}
+}
+@media (max-width:560px){
+  .section{padding:72px 0}
+  .hero-in{padding:64px 24px 72px}
+  .lane{gap:6px}
+  .node{padding:12px 9px;min-height:150px}
+  .node strong{font-size:12px}
+  .node span.sub{font-size:11px}
+  .services,.risks,.pillars,.plans{grid-template-columns:1fr}
+  .panel{padding:24px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+
+/* Option A polish */
+.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 80% 30%,rgba(0,118,209,.3),transparent 35%),linear-gradient(125deg,#001126,#001f45 55%,#002f62)}
+.hero:before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to right,transparent 15%,black)}
+.hero h1{letter-spacing:-.04em;text-transform:none;font-size:clamp(43px,5vw,69px)}
+.hero h1 em{color:#60e6de}
+.journey{position:relative;box-shadow:0 35px 90px #0006;border-color:#3a8cb05e}
+.journey:after{content:"";position:absolute;inset:-1px;border-radius:18px;pointer-events:none;background:linear-gradient(110deg,transparent 15%,rgba(20,214,224,.08) 45%,transparent 75%);animation:glide 8s linear infinite}
+@keyframes glide{0%{opacity:0;transform:translateX(-12%)}50%{opacity:1}100%{opacity:0;transform:translateX(12%)}}
+.section{padding:92px 0}.card{border-radius:16px}.card:hover{box-shadow:0 22px 45px #002b5d12}.trust{background:#f9fcff}
+.plan.featured{background:linear-gradient(145deg,#001f45,#003d7c)}
+@media(prefers-reduced-motion:reduce){.journey:after{animation:none}}
+
+.hero-art{flex:1 1 420px;min-width:0;height:420px;position:relative;isolation:isolate;overflow:hidden;border:1px solid rgba(137,207,245,.24);border-radius:24px;background:radial-gradient(ellipse at 50% 45%,#07396b 0%,#001b3c 57%,#001229 100%);box-shadow:0 32px 80px #0005}
+.hero-art:before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(#60b8ef09 1px,transparent 1px),linear-gradient(90deg,#60b8ef09 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(to bottom,#000,transparent 95%)}
+.art-top{position:absolute;top:21px;left:24px;right:24px;display:flex;justify-content:space-between;align-items:center;z-index:4;font-size:10px;letter-spacing:.15em;color:#b7d9f0;font-weight:700}
+.art-top i{width:7px;height:7px;border-radius:50%;display:inline-block;background:#14d6e0;box-shadow:0 0 12px #14d6e0;margin-right:8px}
+.art-bottom{position:absolute;bottom:19px;left:24px;right:24px;z-index:4;border-top:1px solid #b7d9f026;padding-top:13px;display:flex;justify-content:space-between;font-size:10px;letter-spacing:.09em;color:#a9cce6}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes rotateSlow{to{transform:rotate(360deg)}}
+@keyframes dashFlow{to{stroke-dashoffset:-80}}
+@keyframes glowPulse{0%,100%{opacity:.42}50%{opacity:1}}
+@keyframes drift{0%{transform:translateX(-80px)}100%{transform:translateX(520px)}}
+@media(max-width:560px){.hero-art{height:340px}.hero-in{gap:30px}}
+@media(prefers-reduced-motion:reduce){.hero-art *, .hero-art *:before,.hero-art *:after{animation:none!important}}
+
+.eco-scene{position:absolute;inset:65px 15px 50px;display:flex;align-items:center;justify-content:space-between;gap:6px}.eco-group{position:relative;z-index:2;width:31%;display:flex;flex-direction:column;gap:11px}.eco-label{color:#a9d2ed;font-size:9px;letter-spacing:.11em;font-weight:800;text-align:center;margin-bottom:4px}.eco-card{border:1px solid #3280a888;background:linear-gradient(140deg,#0a3965dd,#06284ddd);border-radius:10px;padding:13px 10px;color:#14d6e0;font-size:16px;display:flex;align-items:center;gap:7px;box-shadow:0 10px 22px #0003;animation:floaty 5s ease-in-out infinite}.eco-card span{font-size:11px;color:#e1f6ff;font-weight:600}.eco-card:nth-child(3){animation-delay:-1.4s}.eco-card:nth-child(4){animation-delay:-2.8s}.eco-ai{z-index:2;position:relative;width:34%;aspect-ratio:1;display:grid;place-items:center}.eco-ring{position:absolute;inset:0;border:1px dashed #14d6e0aa;border-radius:50%;animation:rotateSlow 20s linear infinite;box-shadow:0 0 45px #14d6e022}.eco-ai-core{width:75%;aspect-ratio:1;border-radius:50%;border:1px solid #14d6e0;background:radial-gradient(circle,#0b648b,#00294d 70%);display:flex;flex-direction:column;justify-content:center;align-items:center;box-shadow:0 0 45px #14d6e04a}.eco-ai-core span{font-size:30px;color:#14d6e0}.eco-ai-core strong{font-size:30px;line-height:1}.eco-ai-core small{font-size:7px;letter-spacing:.12em;color:#b6e2ef}.eco-wires{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:.75}.eco-wires path{animation:dashFlow 3s linear infinite}.eco-security{position:absolute;bottom:3px;left:50%;transform:translateX(-50%);width:max-content;max-width:100%;text-align:center;border:1px solid #14d6e055;background:#062f50;border-radius:30px;padding:9px 13px;color:#aaf0ef;font-size:9px;letter-spacing:.08em;font-weight:800}@media(max-width:560px){.eco-card{padding:10px 5px}.eco-card span{font-size:9px}.eco-label{font-size:7px}.eco-security{font-size:7px}.eco-scene{inset:60px 8px 46px}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Skip to main content</a>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo" aria-label="AAZK Solutions home">
+      <span class="mark">AZ</span>
+      <span class="logo-text"><span class="logo-name">AAZK <span>Solutions</span></span><span class="logo-sub">TECHNOLOGY &amp; CONSULTING</span></span>
+    </a>
+    <nav class="navlinks" id="navlinks" aria-label="Main navigation">
+      <a href="#services">Services</a>
+      <a href="#security">AI Security</a>
+      <a href="#private">Private AI</a>
+      <a href="#approach">Approach</a>
+      <a href="#engage">Engagements</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary navcta">Let’s Talk
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+    </a>
+    <button class="menu" id="menu" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path id="menu-icon" d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <span class="badge"><span class="dot"></span>AI strategy · Secure engineering · Practical outcomes</span>
+      <h1>Put AI to work.<br>Keep it secure.<br><em>Keep it yours.</em></h1>
+      <p class="hero-sub">AAZK Solutions helps organizations identify high-value AI opportunities, engineer intelligent solutions, and secure AI adoption from pilot to production.</p>
+      <div class="actions">
+        <a href="#contact" class="btn btn-primary">Explore AI readiness</a>
+        <a href="#services" class="btn btn-ghost">Explore our services</a>
+      </div>
+      <p class="hero-note">AI ADOPTION &nbsp;/&nbsp; AI SECURITY &nbsp;/&nbsp; PRIVATE AI &nbsp;/&nbsp; INTELLIGENT AUTOMATION</p>
+    </div>
+
+    <div class="hero-art ecosystem" role="img" aria-label="Animated enterprise systems, AI intelligence and security layers connecting to deliver business outcomes"><div class="art-top"><span><i></i>ENTERPRISE AI ECOSYSTEM</span><span>LIVE ARCHITECTURE</span></div><div class="eco-scene"><div class="eco-group eco-left"><div class="eco-label">ENTERPRISE INPUTS</div><div class="eco-card">▤ <span>Business apps</span></div><div class="eco-card">▥ <span>Private data</span></div><div class="eco-card">⌘ <span>Workflows</span></div></div><svg class="eco-wires" viewBox="0 0 520 330" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke="#14d6e0" stroke-width="1.5" stroke-dasharray="5 10"><path d="M160 100 C230 100 210 155 265 155"/><path d="M160 165 L265 165"/><path d="M160 230 C220 230 220 175 265 175"/><path d="M325 165 C390 165 355 165 420 165"/></g></svg><div class="eco-ai"><div class="eco-ring"></div><div class="eco-ai-core"><span>✦</span><strong>AI</strong><small>INTELLIGENCE</small></div></div><div class="eco-group eco-right"><div class="eco-label">BUSINESS VALUE</div><div class="eco-card">✓ <span>Insights</span></div><div class="eco-card">↗ <span>Automation</span></div><div class="eco-card">◇ <span>Decisions</span></div></div><div class="eco-security">◈ &nbsp; SECURITY & GOVERNANCE ACROSS EVERY LAYER</div></div><div class="art-bottom"><span>INTEGRATED · GOVERNED</span><span>BUILT FOR PRODUCTION</span></div></div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="wrap trust-in">
+    <span class="trust-label">How we create value</span>
+    <div class="trust-items">
+      <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#009166" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Vendor-neutral advice</span>
+      <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#009166" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Engineering-led delivery</span>
+      <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#009166" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Security built in</span>
+      <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#009166" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Practical security-first delivery</span>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section soft" id="services">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">What we do</p>
+      <h2 style="max-width:720px">AI strategy, engineering and security. One accountable partner.</h2>
+      <p class="lead">From readiness assessments and governance to secure AI agents and private deployments, we connect advisory work to real engineering outcomes.</p>
+    </div>
+    <div class="grid services">
+      <article class="card reveal"><span class="num">01</span><span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0076D1" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><h3>AI Adoption &amp; Advisory</h3><p>Readiness assessments, high-value use cases and practical roadmaps from pilot to production.</p></article>
+      <article class="card reveal"><span class="num">02</span><span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0076D1" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/></svg></span><h3>AI Solutions &amp; Automation</h3><p>AI-enabled workflows, copilots and automations that remove busywork and connect to your systems.</p></article>
+      <article class="card reveal"><span class="num">03</span><span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0076D1" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>AI Security</h3><p>Practical AI security services, from shadow-AI discovery and data protection to employee training and threat readiness.</p></article>
+      <article class="card reveal"><span class="num">04</span><span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0076D1" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg></span><h3>Private AI</h3><p>Private AI solutions designed for infrastructure you control, with deployment and data-handling controls tailored to your requirements.</p></article>
+      <article class="card reveal"><span class="num">05</span><span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0076D1" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8l-5 4 5 4M16 8l5 4-5 4M13 5l-2 14"/></svg></span><h3>Custom Software Engineering</h3><p>Secure web applications, platforms and APIs, designed and built around your business needs.</p></article>
+      <article class="card reveal"><span class="num">06</span><span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0076D1" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 010-8 5 5 0 019.6-1.5A3.5 3.5 0 1117.5 18z"/></svg></span><h3>Cloud, Integration &amp; Modernization</h3><p>Modernize legacy systems and connect data and services with reliable cloud architectures.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- WHY IT MATTERS -->
+<section class="section">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <p class="eyebrow">Why it matters</p>
+        <h2>AI is already inside your business. Is it inside your boundary?</h2>
+        <p class="lead" style="margin-bottom:22px">Most teams adopted AI before anyone set the rules. Every prompt pasted into a public tool can carry client data outside your control.</p>
+        <div class="checks">
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#009166" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Know every AI tool your team uses</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#009166" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Keep sensitive data inside your walls</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#009166" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Get AI’s benefits without the exposure</span>
+        </div>
+      </div>
+      <div class="boundary reveal" role="img" aria-label="Diagram: inside your enterprise boundary, your data and documents connect to private AI. A public AI service outside receives no data.">
+        <div class="inside">
+          <span class="inside-label">YOUR ENTERPRISE BOUNDARY</span>
+          <div class="chips">
+            <span class="chip">Client &amp; business data</span>
+            <span class="chip">Documents &amp; systems</span>
+            <span class="chip dark">Private AI <span>SECURED</span></span>
+          </div>
+        </div>
+        <div class="outside">
+          <span class="block"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D53943" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+          <span class="public">Public AI service</span>
+          <small>No public-AI transfer in this architecture</small>
+        </div>
+      </div>
+    </div>
+    <div class="grid risks">
+      <div class="risk reveal"><span>RISK 01</span><h3>Data exposure</h3><p>Client, patient and financial details pasted into public chatbots can be stored, logged or used outside your control.</p></div>
+      <div class="risk reveal"><span>RISK 02</span><h3>Shadow AI and governance gaps</h3><p>Unapproved tools, browser plugins and AI agents running with no policy, no audit trail and no owner.</p></div>
+      <div class="risk reveal"><span>RISK 03</span><h3>AI-powered attacks</h3><p>Deepfake calls, AI-written phishing and fake invoices now target businesses of every size.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section class="section security" id="security">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow teal">AI security</p>
+      <h2>Secure the AI you use. Defend with AI. Thwart AI-powered attacks.</h2>
+      <p class="lead">We help businesses protect the AI they use, strengthen defenses with AI, and prepare for AI-powered threats through practical, actionable security services.</p>
+    </div>
+    <div class="grid pillars">
+      <div class="pillar reveal">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#14D6E0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        <h3>Secure</h3><p class="tag">Protect the AI your business adopts</p>
+        <ul><li>Find every AI tool in use, including shadow AI</li><li>Stop client data leaking into public chatbots</li><li>Lock down AI agents and automations</li><li>Vet AI vendors before you buy</li></ul>
+      </div>
+      <div class="pillar reveal">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#14D6E0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+        <h3>Defend</h3><p class="tag">Use AI to strengthen your defenses</p>
+        <ul><li>AI-assisted threat detection and alerts</li><li>Smarter email and phishing filtering</li><li>Log monitoring without a full-time team</li><li>24/7 coverage through vetted partners</li></ul>
+      </div>
+      <div class="pillar reveal">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#14D6E0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg>
+        <h3>Thwart</h3><p class="tag">Stop attackers who use AI against you</p>
+        <ul><li>Deepfake voice and video scam training</li><li>Call-back rules for payments and wires</li><li>AI-phishing simulations for staff</li><li>Incident response plans for AI attacks</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVATE AI -->
+<section class="section" id="private">
+  <div class="wrap">
+    <div class="split" style="align-items:flex-start">
+      <div class="reveal">
+        <p class="eyebrow">Private AI Solutions</p>
+        <h2 class="stacked">Your data.<br>Your infrastructure.<br><em>Your rules.</em></h2>
+        <p class="lead" style="margin-bottom:24px">For finance, healthcare, government and anyone with confidential data, we design and deploy private AI solutions on infrastructure you control, securely connecting models to your documents and enterprise systems.</p>
+        <a href="#contact" class="btn btn-outline">Discuss a private AI solution →</a>
+      </div>
+      <div class="tiles reveal">
+        <div class="tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0076D1" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><h3>Controlled data flows</h3><p>Keep prompts and data within the configured private deployment boundary.</p></div>
+        <div class="tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0076D1" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg><h3>Identity &amp; access control</h3><p>Role-based permissions tied to your existing sign-in.</p></div>
+        <div class="tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0076D1" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5h11M9 12h11M9 19h11M4 5h.01M4 12h.01M4 19h.01"/></svg><h3>Full audit trails</h3><p>See who asked what, when, and what data was used.</p></div>
+        <div class="tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0076D1" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="18" height="6" rx="1"/><path d="M7 7h.01M7 17h.01"/></svg><h3>Network isolation</h3><p>Isolated deployments in the region you choose.</p></div>
+      </div>
+    </div>
+    <p class="industries-label">Built for regulated industries</p>
+    <div class="grid industries">
+      <div class="industry reveal"><h3>Finance</h3><p>Client records and transactions stay inside your environment.</p></div>
+      <div class="industry reveal"><h3>Healthcare</h3><p>AI for patient-facing and back-office work, with sensitive data kept private.</p></div>
+      <div class="industry reveal"><h3>Government</h3><p>Isolated deployments that meet strict security and residency requirements.</p></div>
+      <div class="industry reveal"><h3>Professional services</h3><p>Legal, accounting and consulting firms protecting confidential client work.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="section soft-bordered" id="approach">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">How we work</p>
+      <h2>A clear path from idea to impact.</h2>
+      <p class="lead" style="max-width:640px">You see progress at every stage, and every stage ends with something you can use.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><small>STEP 01</small><h3>Discover</h3><p>Understand your goals, constraints, people and opportunities.</p></div>
+      <div class="step reveal"><small>STEP 02</small><h3>Assess</h3><p>Score readiness and risk, then prioritize the highest-value wins.</p></div>
+      <div class="step reveal"><small>STEP 03</small><h3>Build</h3><p>Engineer, integrate and validate with iterative delivery.</p></div>
+      <div class="step reveal"><small>STEP 04</small><h3>Secure</h3><p>Add guardrails, policies and training before go-live.</p></div>
+      <div class="step reveal"><small>STEP 05</small><h3>Evolve</h3><p>Measure results and improve as tools and threats change.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ENGAGEMENTS -->
+<section class="section" id="engage">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Ways to work together</p>
+      <h2 style="margin-bottom:48px">Start small. Grow when it’s working.</h2>
+    </div>
+    <div class="grid plans">
+      <div class="plan featured reveal">
+        <div class="plan-top"><span>01 / ASSESS</span><span class="pill">Start here</span></div>
+        <h3>AI Readiness &amp; Risk Assessment</h3>
+        <p class="price">Scoped to you</p>
+        <ul><li>Team interviews and workflow mapping</li><li>Secure / Defend / Thwart scorecard</li><li>Prioritized plan with estimated savings</li><li>Shadow-AI and data-risk findings</li></ul>
+        <a href="#contact" class="btn btn-primary" data-service="AI readiness assessment">Request an assessment</a>
+      </div>
+      <div class="plan reveal">
+        <div class="plan-top"><span>02 / DELIVER</span></div>
+        <h3>Project-Based Delivery</h3>
+        <p class="price">By proposal</p>
+        <ul><li>AI solutions, automation and integrations</li><li>Private AI architecture and deployment</li><li>Security guardrails and AI use policy</li><li>Staff workshops and deepfake training</li></ul>
+        <a href="#contact" class="btn btn-outline" data-service="AI solutions and automation">Discuss your project</a>
+      </div>
+      <div class="plan reveal">
+        <div class="plan-top"><span>03 / PARTNER</span></div>
+        <h3>Fractional AI Officer</h3>
+        <p class="price">Flexible retainer</p>
+        <ul><li>New AI use cases every month</li><li>Ongoing engineering support</li><li>Policy and security updates</li><li>Priority support and quarterly reviews</li></ul>
+        <a href="#contact" class="btn btn-outline" data-service="Ongoing partnership (Fractional AI Officer)">Talk to us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="band">
+  <div class="wrap band-in">
+    <h2>Find out where AI can help, <em>and where you’re exposed.</em></h2>
+    <a href="#contact" class="btn btn-yellow">Book a free 30-minute call</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="wrap contact-in">
+    <div class="reveal">
+      <p class="eyebrow">Start a conversation</p>
+      <h2>Have a project in mind? Let’s build what’s next.</h2>
+      <p class="lead" style="margin-bottom:24px">Tell us about an AI opportunity, a security concern or a technology challenge. We’ll tell you honestly whether and how we can help.</p>
+      <a class="contact-email" href="mailto:info@aazksolutions.com">info@aazksolutions.com</a>
+    </div>
+
+    <div class="panel reveal">
+      <!-- Contact form opens the visitor’s email application; replace with a verified backend before launch. -->
+      <form id="inquiry" action="mailto:info@aazksolutions.com" method="POST" novalidate>
+        <h3>Tell us about your project</h3>
+        <input type="hidden" name="_subject" value="New AAZK Solutions website inquiry">
+        <input type="hidden" name="source" value="aazk-website">
+        <div class="hp" aria-hidden="true"><label for="f-gotcha">Leave this field empty</label><input id="f-gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+        <div class="form-grid">
+          <div class="field"><label for="f-name">Your name</label><input id="f-name" name="full_name" type="text" autocomplete="name" placeholder="Full name" required></div>
+          <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="name@company.com" required></div>
+        </div>
+        <div class="form-grid">
+          <div class="field"><label for="f-co">Company</label><input id="f-co" name="company" type="text" autocomplete="organization" placeholder="Organization name"></div>
+          <div class="field"><label for="f-phone">Phone <span>(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 555-5555"></div>
+        </div>
+        <div class="field"><label for="f-type">How can we help?</label>
+          <select id="f-type" name="service">
+            <option>AI readiness assessment</option>
+            <option>AI security (Secure / Defend / Thwart)</option>
+            <option>Private AI solutions</option>
+            <option>AI solutions and automation</option>
+            <option>Custom software engineering</option>
+            <option>Ongoing partnership (Fractional AI Officer)</option>
+            <option>Other / not sure yet</option>
+          </select>
+        </div>
+        <div class="field"><label for="f-msg">Project details <span>(optional)</span></label><textarea id="f-msg" name="message" rows="4" placeholder="Goals, timeline or challenge…"></textarea></div>
+        <button class="btn btn-primary submit" id="submit" type="submit">Prepare inquiry email</button>
+        <p class="form-note">This opens your email application; no information is sent from this website directly. We will respond as soon as possible.</p>
+        <p class="form-error" id="form-error" role="alert"></p>
+      </form>
+
+      <div class="thanks" id="thanks" role="status" aria-live="polite" tabindex="-1">
+        <span class="ok"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span>
+        <h3>Thanks, we’ve got it.</h3>
+        <p>We’ll follow up about your inquiry. We’re looking forward to the conversation.</p>
+        <button class="btn" id="again" type="button">Send another inquiry</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#top" class="logo"><span class="mark">AZ</span><span class="logo-name">AAZK <span>Solutions</span></span></a>
+        <p>AI adoption, AI security, private AI and software engineering for organizations building what’s next.</p>
+      </div>
+      <div class="foot-cols">
+        <div><strong>SERVICES</strong><a href="#services">AI adoption</a><a href="#security">AI security</a><a href="#private">Private AI</a><a href="#services">Software engineering</a></div>
+        <div><strong>COMPANY</strong><a href="#approach">Approach</a><a href="#engage">Engagements</a><a href="#contact">Contact</a></div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> AAZK Solutions LLC. All rights reserved.</span>
+      <nav aria-label="Legal"><a href="mailto:info@aazksolutions.com?subject=Privacy%20inquiry">Privacy inquiries</a></nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* Mobile menu */
+  const menu = document.getElementById('menu'), links = document.getElementById('navlinks'), icon = document.getElementById('menu-icon');
+  const setMenu = open => {
+    links.classList.toggle('open', open);
+    menu.setAttribute('aria-expanded', String(open));
+    menu.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    icon.setAttribute('d', open ? 'M6 6l12 12M18 6L6 18' : 'M4 7h16M4 12h16M4 17h16');
+  };
+  menu.addEventListener('click', () => setMenu(!links.classList.contains('open')));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+  /* Scroll reveal */
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const ob = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); ob.unobserve(e.target); }
+    }), { threshold: 0.08 });
+    reveals.forEach(el => ob.observe(el));
+  } else reveals.forEach(el => el.classList.add('visible'));
+
+  /* Pricing buttons preselect the service */
+  const typeSelect = document.getElementById('f-type');
+  document.querySelectorAll('[data-service]').forEach(a => a.addEventListener('click', () => { typeSelect.value = a.dataset.service; }));
+
+  /* Email-based inquiry; no unverified backend dependency. */
+  const form = document.getElementById('inquiry');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const fields = new FormData(form);
+    const subject = 'AAZK Solutions inquiry — ' + (fields.get('service') || 'Consulting');
+    const body = ['Name: '+(fields.get('full_name')||''),'Email: '+(fields.get('email')||''),'Company: '+(fields.get('company')||''),'Phone: '+(fields.get('phone')||''),'Service: '+(fields.get('service')||''),'','Project details:',fields.get('message')||''].join('\n');
+    window.location.href='mailto:info@aazksolutions.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  });
+})();
+</script>
+</body>
+</html>
