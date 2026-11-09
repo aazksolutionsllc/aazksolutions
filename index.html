@@ -213,7 +213,6 @@ h2{margin:0 0 16px;font-weight:700;font-size:clamp(30px,3.6vw,46px);line-height:
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .submit{width:100%}
 .submit[disabled]{opacity:.7;cursor:wait;transform:none}
-.form-note{margin:12px 0 0;font-size:13px;color:var(--muted)}
 .form-error{display:none;margin:14px 0 0;padding:12px 14px;border-radius:8px;background:#FDECEE;color:#9E1F28;font-size:14px;font-weight:500}
 .form-error.show{display:block}
 .thanks{display:none;flex-direction:column;align-items:flex-start;gap:14px;padding:24px 0}
@@ -533,8 +532,7 @@ h2{margin:0 0 16px;font-weight:700;font-size:clamp(30px,3.6vw,46px);line-height:
     </div>
 
     <div class="panel reveal">
-      <!-- Contact form opens the visitor’s email application; replace with a verified backend before launch. -->
-      <form id="inquiry" action="mailto:info@aazksolutions.com" method="POST" novalidate>
+      <form id="inquiry" action="https://formspree.io/f/mqawzdbz" method="post">
         <h3>Tell us about your project</h3>
         <input type="hidden" name="_subject" value="New AAZK Solutions website inquiry">
         <input type="hidden" name="source" value="aazk-website">
@@ -559,8 +557,7 @@ h2{margin:0 0 16px;font-weight:700;font-size:clamp(30px,3.6vw,46px);line-height:
           </select>
         </div>
         <div class="field"><label for="f-msg">Project details <span>(optional)</span></label><textarea id="f-msg" name="message" rows="4" placeholder="Goals, timeline or challenge…"></textarea></div>
-        <button class="btn btn-primary submit" id="submit" type="submit">Prepare inquiry email</button>
-        <p class="form-note">This opens your email application; no information is sent from this website directly. We will respond as soon as possible.</p>
+        <button class="btn btn-primary submit" id="submit" type="submit">Send inquiry</button>
         <p class="form-error" id="form-error" role="alert"></p>
       </form>
 
@@ -623,14 +620,53 @@ h2{margin:0 0 16px;font-weight:700;font-size:clamp(30px,3.6vw,46px);line-height:
   const typeSelect = document.getElementById('f-type');
   document.querySelectorAll('[data-service]').forEach(a => a.addEventListener('click', () => { typeSelect.value = a.dataset.service; }));
 
-  /* Email-based inquiry; no unverified backend dependency. */
+  /* Contact inquiries */
   const form = document.getElementById('inquiry');
-  form.addEventListener('submit', e => {
+  const submitButton = document.getElementById('submit');
+  const formError = document.getElementById('form-error');
+  const thanks = document.getElementById('thanks');
+
+  const showFormError = message => {
+    formError.textContent = message;
+    formError.classList.add('show');
+  };
+
+  form.addEventListener('submit', async e => {
     e.preventDefault();
-    const fields = new FormData(form);
-    const subject = 'AAZK Solutions inquiry — ' + (fields.get('service') || 'Consulting');
-    const body = ['Name: '+(fields.get('full_name')||''),'Email: '+(fields.get('email')||''),'Company: '+(fields.get('company')||''),'Phone: '+(fields.get('phone')||''),'Service: '+(fields.get('service')||''),'','Project details:',fields.get('message')||''].join('\n');
-    window.location.href='mailto:info@aazksolutions.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    if (submitButton.disabled) return;
+
+    formError.classList.remove('show');
+    formError.textContent = '';
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending…';
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form)
+      });
+      if (response.status === 429) {
+        showFormError('Too many requests. Please wait a moment and try again.');
+        return;
+      }
+      if (!response.ok) throw new Error('Inquiry submission failed');
+
+      form.reset();
+      form.hidden = true;
+      thanks.classList.add('show');
+      thanks.focus();
+    } catch {
+      showFormError('We couldn’t send your inquiry. Please try again or email info@aazksolutions.com.');
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = 'Send inquiry';
+    }
+  });
+
+  document.getElementById('again').addEventListener('click', () => {
+    thanks.classList.remove('show');
+    form.hidden = false;
+    document.getElementById('f-name').focus();
   });
 })();
 </script>
